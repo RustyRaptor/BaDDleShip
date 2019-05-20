@@ -14,6 +14,8 @@
 # Executables
 *.exe
 
+baddleship
+
 # DUB
 .dub
 docs.json
