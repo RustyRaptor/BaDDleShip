@@ -1,7 +1,5 @@
 os:
 - linux
-- windows
-- osx
 
 language: bash
 
