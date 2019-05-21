@@ -30,7 +30,7 @@ script:
       curl -fsS https://dlang.org/install.sh | bash -s dmd;
       source ~/dlang/dmd-2.086.0/activate;
       dub build -b release --parallel --force --arch=x86_64
-      7z a -tzip Baddleship-AppDir.zip assets Baddleship BADDLESHIP_VERSION &
+      7z a -tzip Baddleship-AppDir.zip baddleship BADDLESHIP_VERSION &
       #cd tools/rpm && sh generate_rpm.sh && cd ../../ &
       #cd tools/flatpak && sh generate_flatpak.sh && cd ../../ &
       #cd tools/snap && sh generate_snap.sh && cd ../../ &
