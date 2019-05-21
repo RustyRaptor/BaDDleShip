@@ -34,8 +34,8 @@ script:
       #cd tools/rpm && sh generate_rpm.sh && cd ../../ &
       #cd tools/flatpak && sh generate_flatpak.sh && cd ../../ &
       #cd tools/snap && sh generate_snap.sh && cd ../../ &
-      cd tools/deb && sh generate_deb.sh && cd ../../ &
-      cd tools/appimage && sh gtk.sh && cd ../../ &
+      # cd tools/deb && sh generate_deb.sh && cd ../../ &
+      # cd tools/appimage && sh gtk.sh && cd ../../ &
       wait
     fi
   #windows
@@ -60,9 +60,9 @@ script:
   #    fi
   
 before_deploy:
-  - test -f tools/appimage/Baddleship.AppImage
+  # - test -f tools/appimage/Baddleship.AppImage
   # - test -f tools/deb/Baddleship.deb
-  # - test -f Baddleship-AppDir.zip
+  - test -f Baddleship-AppDir.zip
   # - test -f Baddleship-CLI-AppDir.zip
   # - test -f Baddleship-CLI-Windows-x86.zip
   # - test -f Baddleship-Windows-x86.zip
@@ -83,9 +83,9 @@ deploy:
   api_key:
     secure: $GITHUB_TOKEN
   file: 
-    - tools/appimage/Baddleship.AppImage
+    # - tools/appimage/Baddleship.AppImage
     # - tools/deb/Baddleship.deb
-    # - Baddleship-AppDir.zip
+    - Baddleship-AppDir.zip
     # - Baddleship-CLI-AppDir.zip
     # - Baddleship-CLI-Windows-x86.zip
     # - Baddleship-Windows-x86.zip
