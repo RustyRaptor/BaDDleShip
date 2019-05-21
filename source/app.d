@@ -3,9 +3,12 @@ import std.algorithm.comparison : among, equal;
 import std.range : iota;
 import std.random;
 import std.datetime;
+import std.datetime.timezone : LocalTime;
+
 
 /// Prints the board
 void printBoard(int[5][5] board){
+    /// TODO: print neatly
     foreach(row; board) {
         writeln(row);
         }
@@ -19,7 +22,8 @@ void printWelcome(){
 /// returns a random row on the game board
 int randomRow(){
     
-    auto rnd = Random(22);
+
+    auto rnd = Random();
     /// TODO: range based on length of board
     const int i = uniform(0, 4, rnd);
     assert(i >= 0 && i < 4);
@@ -46,8 +50,22 @@ void main(){
             item = 0;
         }
     }
+    SysTime today = Clock.currTime();
+    writeln(((today.second)));
+    /// place a ship on a random tile
+    const int shipRow = randomRow();
+    const int shipCol = randomCol();
     printWelcome();
     printBoard(board);
-    writeln(randomRow());
-    writeln(randomCol());
+    // writeln(board[shipRow]);
+    // writeln(board[shipRow][shipCol]);
+    int guessRow;
+    int guessCol;
+    write("Enter a Row:");
+    readf(" %s", &guessRow);
+    writeln("");
+    write("Enter a Column:");
+    readf(" %s", &guessCol);
+    writeln("");
+
 }
